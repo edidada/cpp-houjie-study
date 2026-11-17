@@ -1,0 +1,12 @@
+[submodule "third_party/bilibili-plus"]
+	path = third_party/bilibili-plus
+	url = https://github.com/edidada/Bilibili-plus.git
+	shallow = true
+[submodule "third_party/houjie-course"]
+	path = third_party/houjie-course
+	url = https://github.com/edidada/houjie-course.git
+	shallow = true
+[submodule "third_party/houjie-notes"]
+	path = third_party/houjie-notes
+	url = https://github.com/edidada/HoujieCppNotes.git
+	shallow = true

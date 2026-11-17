@@ -1,0 +1,26 @@
+name: CMake Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        # 不拉 third_party 子模块：编译只依赖 src/，子模块里是几百 MB 视频/PPT。
+
+      - name: Configure CMake
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --parallel 2
+
+      - name: Test
+        working-directory: build
+        run: ctest --output-on-failure -C Release
